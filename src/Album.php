@@ -28,7 +28,11 @@ class Album
 
     function compareArtist($input_artist)
     {
-        return strtolower($this->getArtist()) == strtolower($input_artist);
+        $possessedArtist = strtolower($this->getArtist());
+        $inputArtist = strtolower($input_artist);
+        if (strpos($possessedArtist, $inputArtist) !== false){
+          return true;
+        };
     }
 
     static function getAll()
