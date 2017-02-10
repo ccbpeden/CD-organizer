@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Your Albums</title>
+    </head>
+    <body>
+        <form action="/albums" method="post">
+            <label for="artist">Artist Name</label>
+            <input type="text" name="artist_name" id="artist_name"><br><br>
+
+            <label for="title">Album Title</label>
+            <input type="text" name="album_name" id="album_name"><br><br>
+
+            <button type="submit">Add Cd</button>
+
+        </form>
+
+        <form action='/delete_albums' method='post'>
+            <button type='submit'>Delete Albums</button>
+        </form>
+        <form action='/search' method='get'>
+            <button type='submit'>Search by Artist</button>
+        </form>
+        {% if albums is not empty %}
+        <h1>Here is a list of your Albums:</h1>
+            {% for album in albums %}
+                <ul>
+                    <li>Artist: {{ album.getArtist }}</li>
+                        <ul>
+                            <li>Album Title: {{ album.getAlbumName }}</li>
+                        </ul>
+                </ul>
+            {% endfor %}
+        {% endif %}
+    </body>
+</html>

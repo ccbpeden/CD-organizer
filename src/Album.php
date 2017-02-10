@@ -2,11 +2,13 @@
 class Album
 {
     private $album_name;
+    private $artist_name;
 
-    function __construct($album_name, $artist)
+
+    function __construct($artist_name, $album_name)
     {
+        $this->artist_name = $artist_name;
         $this->album_name = $album_name;
-        $this->artist = $artist;
     }
 
     function getAlbumName()
@@ -16,7 +18,7 @@ class Album
 
     function getArtist()
     {
-        return $this->artist;
+        return $this->artist_name;
     }
 
     function SaveAlbum()
@@ -26,7 +28,7 @@ class Album
 
     function compareArtist($input_artist)
     {
-        return strtolower($this->getArtistName()) == strtolower($input_artist);
+        return strtolower($this->getArtist()) == strtolower($input_artist);
     }
 
     static function getAll()

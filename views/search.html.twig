@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Search Results</title>
+    </head>
+    <body>
+        <form action="/search" method="post">
+            <label for="user_input">Search by Artist Name</label>
+            <input type="text" name="user_input" id="user_input"><br><br>
+            <button type="submit">Find Cds</button>
+        </form>
+
+        <form action='/' method='get'>
+            <button type='submit'>Add More Cds</button>
+        </form>
+
+        {% if matching is not empty %}
+        <h1>Here is a list of all albums by {{album.getArtistName}}:</h1>
+            {% for album in matching %}
+                <ul>
+                    <li>Artist: {{ cd.getArtistName }}</li>
+                    <li><img src="{{ cd.getCover }}" alt=""/></li>
+                        <ul>
+                            <li>Album Title: {{ cd.getTitle }}</li>
+                        </ul>
+                </ul>
+            {% endfor %}
+        {% endif %}
+    </body>
+</html>
