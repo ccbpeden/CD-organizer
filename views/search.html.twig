@@ -18,10 +18,9 @@
         <h1>Here is a list of all albums by {{album.getArtistName}}:</h1>
             {% for album in matching %}
                 <ul>
-                    <li>Artist: {{ cd.getArtistName }}</li>
-                    <li><img src="{{ cd.getCover }}" alt=""/></li>
+                    <li>Artist: {{ album.getArtist }}</li>
                         <ul>
-                            <li>Album Title: {{ cd.getTitle }}</li>
+                            <li>Album Title: {{ album.getAlbumName }}</li>
                         </ul>
                 </ul>
             {% endfor %}
